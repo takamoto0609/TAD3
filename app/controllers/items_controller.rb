@@ -20,6 +20,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item                    = Item.find(params[:id])
+  end
+
   def search
     if params[:input_name].present?
       @items = Item.where('name LIKE ?', "%#{params[:input_name]}%")
