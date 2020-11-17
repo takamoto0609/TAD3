@@ -1,0 +1,37 @@
+<div class="items_index">
+  <div class="items_index_L">
+    <div class="search_form">検索</div>
+  </div>
+
+  <div class="items_index_R">
+    <%# 地図 %>
+    <div class="items_index_R_map" , id="map"></div>
+
+    <script type="text/javascript">
+      function initMap() {
+        var opts = {
+          zoom: 15,
+          center: new google.maps.LatLng(35.1239654, 136.9417741)
+        };
+        var map = new google.maps.Map(document.getElementById("map"), opts);
+      }
+    </script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=#AIzaSyD77GZg71bC10RX8nTEOJgfrixangpPRqI&callback=initMap">
+    </script>
+    <%# 地図 %>
+
+    <div class="items_index_R_menu">
+      <div class="advertising">広告欄</div>
+      <div>現在のポイント</div>
+      <h2>100P</h2>
+      <div>ポイントメニュー</div>
+      <div>取引履歴</div>
+      <div>出品する</div>
+      <div>アプリの使い方</div>
+      <div>ログイン
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.items_index {
+  // background-color: chartreuse;
+  display: flex;
+
+  &_L {
+    width: 288px;
+    // border: 2px solid dodgerblue;
+    // background-color: blueviolet;
+  }
+
+  &_R {
+    width: calc(100% - 288px);
+    // background-color: rgb(43, 174, 226);
+    display: flex;
+
+    &_map {
+      width: 840px;
+      height: 100vh;
+      background-color: rgb(162, 238, 238);
+    }
+
+    &_menu {
+      width: calc(100% - 840px);
+      height: 100vh;
+      // background-color: rgb(226, 43, 150);
+    }
+  }
+}
+
+.search_form{
+  width: 84%;
+  height: 36px;
+  margin: 24px 12px;
+  border: 2px solid dodgerblue;
+  // background-color: floralwhite;
+}
+
+// 広告欄
+.advertising{
+  width: 96%;
+  height: 264px;
+  border: 2px solid dodgerblue;
+  margin: 24px auto;
+  // margin-top: 24px;
+  background-color: rgb(251, 255, 0);
+}
