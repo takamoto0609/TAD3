@@ -1,9 +1,24 @@
 <div class="items_index">
   <div class="items_index_L">
     <%= form_with url: search_items_path, method: :get, local: true do |f| %>
-    <%= f.text_field :input_name, class:"search_form"%>
+    <%= f.text_field :input_name, class:"search_form" %>
     <%= f.submit :"検索" %>
     <% end %>
+
+      <% if @items.length != 0 %>
+      <% @items.each do |item| %>
+      <div class="search_result">
+      <%= item.name %><br>
+      １個　<%= item.point %>ポイント<br>
+      受け渡し場所：<%= item.place %><br>
+      残り　<%= item.stock %>個<br>
+      <%= item.comment %>
+      </div>
+      <% end %>
+      <% else %>
+      探しているアイテムが見つかりません
+      <% end %>
+    </table>
   </div>
 
   <div class="items_index_R">
