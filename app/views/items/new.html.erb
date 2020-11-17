@@ -1,0 +1,10 @@
+出品画面
+<%= form_with(model: @item, url:items_path, local: true) do |f| %>
+<%= f.text_field :name, placeholder:"名前" %>
+<%= f.text_field :point, placeholder:"設定ポイント" %>
+在庫<%= f.text_field :stock, placeholder:"個数" %>個
+<%= f.text_field :place, placeholder:"受け渡し場所" %>
+<%= f.text_field :comment, placeholder:"コメント" %>
+<%= f.submit "出品する" %>
+<% end %>
+写真を載せる
