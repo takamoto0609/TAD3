@@ -9,8 +9,9 @@
       <b><%= @item.name %></b><br>
       1個　<%= @item.point %>ポイント(残り　<%= @item.stock %>個)<br>
       受け渡し場所：<%= @item.place %><br>
-      <%= @item.comment %><br>
-      メッセージを送る
+      出品者：<%= @item.user.email %><br>
+      コメント：<%= @item.comment %><br>
+      <%= link_to "問い合わせ", item_chats_path(@item) %>
     </div>
   </div>
 
