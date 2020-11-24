@@ -1,9 +1,18 @@
 <h2>ポイントメニュー</h2>
 <h2>現在のポイント：<%= "#{current_user.wallet.point}P"%></h2>
 <li><%= link_to "ポイントをコード化", new_code_path %></li>
-<h3> 未使用の発行コード</h3>
+<h3>コード発行履歴</h3>
 <% @codes.each do |code|%>
 <% unless code.used%>
-<%= "コード：#{code.pass}"%>　<%= "ポイント：#{code.point}P"%><br>
+<%= "コード：#{code.pass}"%>　<%= "ポイント：#{code.point}P"%>　未使用<br>
+<%else%>
+<%= "コード：#{code.pass}"%>　<%= "ポイント：#{code.point}P"%>　使用済<br>
 <%end%>
+<%end%>
+<br>
+<li><%= link_to "コードをポイント化", new_change_point_path %></li>
+<br>
+<h3>履歴</h3>
+<% @cps.each do |cp|%>
+<%= "コード：#{cp.pass}"%>　<%= "ポイント：#{cp.point}P"%><br>
 <%end%>
