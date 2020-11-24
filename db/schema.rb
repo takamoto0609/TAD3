@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_033707) do
   create_table "wallets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "point", default: 100, null: false
     t.bigint "user_id", null: false
-    t.string "reason", null: false
+    t.string "reason", default: "初回お試し", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_wallets_on_user_id"
