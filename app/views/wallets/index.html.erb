@@ -1,0 +1,9 @@
+<h2>ポイントメニュー</h2>
+<h2>現在のポイント：<%= "#{current_user.wallet.point}P"%></h2>
+<li><%= link_to "ポイントをコード化", new_code_path %></li>
+<h3> 未使用の発行コード</h3>
+<% @codes.each do |code|%>
+<% unless code.used%>
+<%= "コード：#{code.pass}"%>　<%= "ポイント：#{code.point}P"%><br>
+<%end%>
+<%end%>

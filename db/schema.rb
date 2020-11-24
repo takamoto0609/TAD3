@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_033707) do
+ActiveRecord::Schema.define(version: 2020_11_24_051051) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2020_11_19_033707) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_chats_on_item_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "codes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "point", null: false
+    t.string "pass", null: false
+    t.boolean "used", default: false, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_codes_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_033707) do
 
   add_foreign_key "chats", "items"
   add_foreign_key "chats", "users"
+  add_foreign_key "codes", "users"
   add_foreign_key "items", "users"
   add_foreign_key "wallets", "users"
 end

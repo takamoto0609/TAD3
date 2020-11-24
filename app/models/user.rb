@@ -6,5 +6,6 @@ class User < ApplicationRecord
   
   has_many :items, dependent: :destroy
   has_many :chats, dependent: :destroy
+  has_many :codes, dependent: :destroy
   has_one :wallet
 end

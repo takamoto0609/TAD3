@@ -28,8 +28,12 @@
     <div class="items_index_R_menu">
       <div class="advertising">広告欄</div>
       <div>現在のポイント</div>
-      <h2>100P</h2>
-      <div>ポイントメニュー</div>
+      <% if user_signed_in? %>
+      <h2><%= "#{current_user.wallet.point}"%>P</h2>
+      <% else %>
+      <h2>---P</h2>
+      <% end %>
+      <li><%= link_to "ポイントメニュー", wallets_path %></li>
       <div>取引履歴</div>
       <div>
         <li><%= link_to '出品', new_item_path %>

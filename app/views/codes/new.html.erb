@@ -1,0 +1,8 @@
+<%if @message%>
+<%= "#{@message}"%>
+<%end%>
+<%= form_with(model: @code, local: true) do |f| %>
+<%= f.number_field :point, placeholder:"ポイント" %>
+<%= f.text_field :pass, placeholder:"コード" %>
+<%= f.submit "コード化" %>
+<% end %>
