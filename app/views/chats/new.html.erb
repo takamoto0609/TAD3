@@ -22,7 +22,7 @@ CHAT画面<br>
   <%end%>
 </div>
 
-<%= form_with model: @chat, id:"send-form", local: true do |f|%>
+<%= form_with model: @chat, url: item_chats_path, id:"send-form", local: true do |f|%>
 <%= f.text_field :message, class:"items-text", id:"message", placeholder:"入力してね", style:"width:30%;", maxlength:"40" %>
 <%= f.submit '送信', id:"send" %>
 <%end%>

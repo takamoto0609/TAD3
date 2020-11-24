@@ -11,7 +11,7 @@
       受け渡し場所：<%= @item.place %><br>
       出品者：<%= @item.user.email %><br>
       コメント：<%= @item.comment %><br>
-      <%= link_to "問い合わせ", item_chats_path(@item) %>
+      <%= link_to "問い合わせ", new_item_chat_path(@item) %>
     </div>
   </div>
 
