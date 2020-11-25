@@ -10,7 +10,7 @@
       <div class="search_result">
       <b><%= link_to "#{item.name}", item_path(item.id) %></b><br>
       1個　<%= item.point %>ポイント(残り　<%= item.stock %>個)<br>
-      受け渡し場所：<%= item.place %><br>
+      受け渡し場所：<%= item.address %><br>
       </div>
       <% end %>
       <% else %>

@@ -43,11 +43,13 @@ ActiveRecord::Schema.define(version: 2020_11_24_074215) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "place", null: false
+    t.text "address", null: false
     t.integer "point", null: false
     t.integer "stock", default: 1, null: false
     t.text "comment", null: false
     t.bigint "user_id", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"

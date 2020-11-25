@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def new
@@ -21,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = Item.all
     @item = Item.find(params[:id])
   end
 
@@ -35,6 +37,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :point, :comment, :place, :stock, :user_id,).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :point, :comment, :address, :stock, :user_id, :latitude, :longitude).merge(user_id: current_user.id)
   end
 end
