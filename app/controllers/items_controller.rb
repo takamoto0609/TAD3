@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    gon.items = @items
   end
 
   def new
@@ -24,11 +25,14 @@ class ItemsController < ApplicationController
   def show
     @items = Item.all
     @item = Item.find(params[:id])
+    gon.item = @item
   end
 
   def search
     if params[:input_name].present?
       @items = Item.where('name LIKE ?', "%#{params[:input_name]}%")
+      .or(Item.where('address LIKE ?', "%#{params[:input_name]}%"))
+      gon.items = @items
     else
       @items = Item.none
     end

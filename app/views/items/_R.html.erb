@@ -1,0 +1,30 @@
+<div class="items_index_R_menu">
+  <div class="advertising">広告欄</div>
+  <div class="items_index_R_menu_list">
+    <% if user_signed_in? %>
+    <h4><%= "ようこそ#{current_user.email}"%>さん</h4>
+    <% else %>
+    <h4>ようこそゲストさん</h4>
+    <% end %>
+    <div>現在のポイント</div>
+    <% if user_signed_in? %>
+    <h2><%= "#{current_user.wallet.point}"%>P</h2>
+    <% else %>
+    <h2>---P</h2>
+    <% end %>
+    <li><%= link_to "ポイントメニュー", wallets_path %></li>
+    <div>
+      <li><%= link_to '出品', new_item_path %></li>
+    </div>
+    <li><%= link_to 'トップページへ', root_path %></li>
+    <div>
+      <% if user_signed_in? %>
+      <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %>
+        / <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+      </li>
+      <% end %>
+    </div>
+  </div>
+</div>

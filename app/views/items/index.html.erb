@@ -8,47 +8,10 @@
 
   <div class="items_index_R">
     <%# 地図 %>
-    <div class="items_index_R_map" , id="map"></div>
-
-    <script type="text/javascript">
-      function initMap() {
-        var opts = {
-          zoom: 15,
-          center: new google.maps.LatLng(35.1239654, 136.9417741)
-        };
-        var map = new google.maps.Map(document.getElementById("map"), opts);
-      }
-    </script>
-
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=#AIzaSyD77GZg71bC10RX8nTEOJgfrixangpPRqI&callback=initMap">
-    </script>
+    <%= render "items/map5" %>
     <%# 地図 %>
+    
+    <%= render "items/R" %>
 
-    <div class="items_index_R_menu">
-      <div class="advertising">広告欄</div>
-      <div>現在のポイント</div>
-      <% if user_signed_in? %>
-      <h2><%= "#{current_user.wallet.point}"%>P</h2>
-      <% else %>
-      <h2>---P</h2>
-      <% end %>
-      <li><%= link_to "ポイントメニュー", wallets_path %></li>
-      <div>取引履歴</div>
-      <div>
-        <li><%= link_to '出品', new_item_path %>
-      </div>
-      <div>アプリの使い方</div>
-      <div>
-        <% if user_signed_in? %>
-        <li><%= link_to current_user.email, "#" %></li>
-        <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %>
-          / <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-        </li>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>

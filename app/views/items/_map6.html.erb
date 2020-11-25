@@ -1,0 +1,36 @@
+<div class="items_index_R_map" id='map'></div>
+
+<script>
+  let map;
+  let marker = []; // マーカーを複数表示させたいので、配列化
+  let infoWindow = []; // 吹き出しを複数表示させたいので、配列化
+  let markerData = gon.item; // コントローラーで定義したインスタンス変数を変数に代入
+
+  function initMap() {
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {
+        lat: markerData['latitude'],
+        lng: markerData['longitude']
+      }, // アイテムのaddressを中心に表示させている
+      zoom: 16,
+    });
+
+    let id = markerData['id']
+
+    // アイテムの緯度経度を算出
+    markerLatLng = new google.maps.LatLng({
+      lat: markerData['latitude'],
+      lng: markerData['longitude']
+    });
+
+    // アイテムのマーカーを作成
+    marker = new google.maps.Marker({
+      position: markerLatLng,
+      map: map
+    });
+  }
+</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap">
+</script>

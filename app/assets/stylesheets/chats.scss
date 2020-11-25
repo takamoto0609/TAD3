@@ -4,16 +4,17 @@
 /************************************
 ** トークルーム一覧
 ************************************/
-.rooms{
-  margin:0 auto;
-  background-color:#fdfdfd;
+.rooms {
+  margin: 0 auto;
+  background-color: #fdfdfd;
   border: 2px solid #eee;
-  padding:1em 2em;
+  padding: 1em 2em;
 }
+
 /************************************
 ** チャットの吹き出し
 ************************************/
-#chats{
+#chats {
   padding: 20px 10px;
   max-width: 450px;
   margin: 15px auto;
@@ -21,25 +22,30 @@
   font-size: 14px;
   background: #7da4cd;
 }
+
 .fukidasi {
   width: 100%;
   margin: 10px 0;
   overflow: hidden;
 }
+
 .fukidasi .faceicon {
   float: left;
   margin-right: -50px;
   width: 40px;
 }
-.fukidasi .faceicon img{
+
+.fukidasi .faceicon img {
   width: 90%;
   height: auto;
   border-radius: 50%;
 }
+
 .fukidasi .chatting {
   width: 100%;
   text-align: left;
 }
+
 .says {
   display: inline-block;
   position: relative;
@@ -49,6 +55,7 @@
   border-radius: 12px;
   background: #edf1ee;
 }
+
 .says:after {
   content: "";
   display: inline-block;
@@ -60,13 +67,16 @@
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
+
 .says p {
   margin: 0;
   padding: 0;
 }
+
 .mycomment {
   margin: 10px 0;
 }
+
 .mycomment p {
   display: inline-block;
   position: relative;
@@ -77,6 +87,7 @@
   background: #30e852;
   font-size: 15px;
 }
+
 .mycomment p:after {
   content: "";
   position: absolute;
@@ -87,10 +98,18 @@
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
 }
+
 /************************************
 ** 送信フォーム
 ************************************/
-#send-form{
-  text-align:center;
-  margin-bottom:200px;
+#send-form {
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+.chat_unit {
+  display: block;
+  width: 840px;
+  height: 100vh;
+  // background: #7da4cd;
 }

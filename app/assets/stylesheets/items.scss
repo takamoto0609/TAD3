@@ -20,13 +20,16 @@
     &_map {
       width: 840px;
       height: 100vh;
-      background-color: rgb(162, 238, 238);
+      //background-color: rgb(162, 238, 238);
     }
 
     &_menu {
       width: calc(100% - 840px);
       height: 100vh;
       // background-color: rgb(226, 43, 150);
+      &_list{
+        margin-left: 24px;
+      }
     }
   }
 }
