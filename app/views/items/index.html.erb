@@ -18,6 +18,7 @@
       <%= f.text_area :comment, placeholder:"コメント", class:"items_index_L_2_A" %><br>
       <%= f.submit "登録" %>
       <% end %>
+      <% if @message%><h5 style="color:red"><%= "#{@message}"%></h5><%end%>
     </div>
   </div>
 

@@ -16,11 +16,15 @@ class ItemsController < ApplicationController
   def create
     if user_signed_in?
       @item = Item.new(item_params)
-      if @item.valid?
+      if @item.name != "" && @item.point != nil && @item.stock != nil && @item.address != "" && @item.comment != ""
         @item.save
         redirect_to root_path
       else
-        redirect_to root_path
+        @message = "登録に失敗しました"
+        @items = Item.all
+        gon.items = @items
+        @item = Item.new
+        render "items/index"
       end
     else
       redirect_to new_user_session_path
