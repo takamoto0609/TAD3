@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     gon.items = @items
+    @item = Item.new
   end
 
   def new
@@ -13,12 +14,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.valid?
-      @item.save
-      redirect_to root_path
+    if user_signed_in?
+      @item = Item.new(item_params)
+      if @item.valid?
+        @item.save
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
     else
-      render :new
+      redirect_to new_user_session_path
     end
   end
 

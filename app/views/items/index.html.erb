@@ -1,16 +1,31 @@
 <div class="items_index">
   <div class="items_index_L">
-    <%= form_with url: search_items_path, method: :get, local: true do |f| %>
-    <%= f.text_field :input_name, class:"search_form"%>
-    <%= f.submit :"検索" %>
-    <% end %>
+    <div class="items_index_L_1">
+      <h4>何が欲しい？</h4>
+      <%= form_with url: search_items_path, method: :get, local: true do |f| %>
+      <%= f.text_field :input_name, class:"search_form"%>
+      <%= f.submit :"探す" %>
+      <p>受け渡し場所でも検索できます</p>
+      <% end %>
+    </div>
+    <div class="items_index_L_2">
+      <h4>あげます・貸します</h4>
+      <%= form_with(model: @item, url:items_path, local: true) do |f| %>
+      <%= f.text_field :name, placeholder:"アイテム名", class:"items_index_L_2_A" %><br>
+      <%= f.text_field :point, placeholder:"設定ポイント", class:"items_index_L_2_A" %>P<br>
+      在庫数<%= f.text_field :stock, placeholder:"在庫数", class:"items_index_L_2_A" %>個<br>
+      <%= f.text_field :address, placeholder:"受け渡し場所", class:"items_index_L_2_A" %><br>
+      <%= f.text_area :comment, placeholder:"コメント", class:"items_index_L_2_A" %><br>
+      <%= f.submit "登録" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="items_index_R">
     <%# 地図 %>
     <%= render "items/map5" %>
     <%# 地図 %>
-    
+
     <%= render "items/R" %>
 
   </div>

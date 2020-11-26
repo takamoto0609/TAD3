@@ -8,8 +8,23 @@
 
   &_L {
     width: 288px;
+    padding: 3px;
     // border: 2px solid dodgerblue;
     // background-color: blueviolet;
+    &_1{
+      padding: 12px;
+      margin-bottom: 24px;
+      border: 2px solid skyblue;
+      text-align: center;
+    }
+    &_2{
+      padding: 12px;
+      border: 2px solid skyblue;
+      text-align: center;
+      &_A{
+        margin-bottom: 6px;
+      }
+    }
   }
 
   &_R {
@@ -61,7 +76,7 @@
   width: 96%;
   height: 264px;
   border: 2px solid dodgerblue;
-  margin: 24px auto;
+  margin: 12px auto;
   // margin-top: 24px;
   background-color: rgb(251, 255, 0);
 }

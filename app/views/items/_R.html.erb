@@ -12,13 +12,11 @@
     <% else %>
     <h2>---P</h2>
     <% end %>
-    <%= link_to "ポイントメニュー", wallets_path %>
-    <div>
-      <%= link_to '出品', new_item_path %>
-    </div>
+    <%= link_to "ポイントメニュー", wallets_path %><br><br>
     <%= link_to 'トップページへ', root_path %>
     <div>
       <% if user_signed_in? %>
+      <br>
       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% else %>
       <%= link_to 'ログイン', new_user_session_path, class: "login" %>

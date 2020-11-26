@@ -1,21 +1,25 @@
 <div class="items_index">
   <div class="items_index_L">
-    <%= form_with url: search_items_path, method: :get, local: true do |f| %>
-    <%= f.text_field :input_name, class:"search_form" %>
-    <%= f.submit :"検索" %>
-    <% end %>
+    <div class="items_index_L_1">
+      <h4>何が欲しい？</h4>
+      <%= form_with url: search_items_path, method: :get, local: true do |f| %>
+      <%= f.text_field :input_name, class:"search_form"%>
+      <%= f.submit :"探す" %>
+      <p>受け渡し場所でも検索できます</p>
+      <% end %>
+    </div>
 
-      <% if @items.length != 0 %>
-      <% @items.each do |item| %>
-      <div class="search_result">
+    <% if @items.length != 0 %>
+    <% @items.each do |item| %>
+    <div class="search_result">
       <b><%= link_to "#{item.name}", item_path(item.id) %></b><br>
       1個　<%= item.point %>ポイント(残り　<%= item.stock %>個)<br>
       受け渡し場所：<%= item.address %><br>
-      </div>
-      <% end %>
-      <% else %>
-      探しているアイテムが見つかりません
-      <% end %>
+    </div>
+    <% end %>
+    <% else %>
+    探しているアイテムが見つかりません
+    <% end %>
     </table>
   </div>
 
@@ -25,6 +29,6 @@
     <%# 地図 %>
 
     <%= render "items/R" %>
-    
+
   </div>
 </div>
