@@ -1,18 +1,67 @@
-<h2>ポイントメニュー</h2>
-<h2>現在のポイント：<%= "#{current_user.wallet.point}P"%></h2>
-<li><%= link_to "ポイントをコード化", new_code_path %></li>
-<h3>コード発行履歴</h3>
-<% @codes.each do |code|%>
-<% unless code.used%>
-<%= "コード：#{code.pass}"%>　<%= "ポイント：#{code.point}P"%>　未使用<br>
-<%else%>
-<%= "コード：#{code.pass}"%>　<%= "ポイント：#{code.point}P"%>　使用済<br>
-<%end%>
-<%end%>
-<br>
-<li><%= link_to "コードをポイント化", new_change_point_path %></li>
-<br>
-<h3>履歴</h3>
-<% @cps.each do |cp|%>
-<%= "コード：#{cp.pass}"%>　<%= "ポイント：#{cp.point}P"%><br>
-<%end%>
+<div class="wallets_index">
+  <div class="wallets_index_L">
+    <%= link_to '←トップページへ', root_path %>
+    <h2>ポイントメニュー</h2>
+    <h4>現在のポイント</h4>
+    <div class="wallets_index_L_point">
+      <h2><%= "#{current_user.wallet.point}P"%></h2>
+    </div>
+
+    <h4>ポイントをコードにする</h4>
+    <%= form_with(model: @code, local: true) do |f| %>
+    <%= f.number_field :point, placeholder:"ポイント" %>
+    <%= f.text_field :pass, placeholder:"コード" %>
+    <%= f.submit "実行" %>
+    <% end %>
+    <h4>もらったコードをポイントにする</h4>
+    <%= form_with(model: @cp, local: true) do |f| %>
+    <%= f.text_field :pass, placeholder:"コード" %>
+    <%= f.submit "実行" %>
+    <% end %>
+    <% if @message_1%><h5 style="color:red"><%= "#{@message_1}"%></h5><%end%>
+    <% if @message_2%><h5 style="color:red"><%= "#{@message_2}"%></h5><%end%>
+  </div>
+
+  <div class="wallets_index_R">
+    <div class="wallets_index_R_L">
+      <h3>◇コード発行履歴◇</h3>
+      <table>
+        <tr>
+          <th>コード</th>
+          <th>ポイント</th>
+          <th>状態</th>
+        </tr>
+        <% @codes.each do |code|%>
+        <% unless code.used%>
+        <tr>
+          <td><%= "#{code.pass}"%></td>
+          <td><%= "#{code.point}P"%></td>
+          <td style="color:blue">未使用</td>
+        </tr>
+        <%else%>
+        <tr>
+          <td><%= "#{code.pass}"%></td>
+          <td><%= "#{code.point}P"%></td>
+          <td style="color:red">使用済</td>
+        </tr>
+        <%end%>
+        <%end%>
+      </table>
+    </div>
+    <div class="wallets_index_R_R">
+      <h3>◇もらったコード履歴◇</h3>
+      <table>
+        <tr>
+          <th>コード</th>
+          <th>ポイント</th>
+        </tr>
+        <% @cps.each do |code|%>
+        <tr>
+          <td><%= "#{code.pass}"%></td>
+          <td><%= "#{code.point}P"%></td>
+        </tr>
+        <%end%>
+      </table>
+    </div>
+  </div>
+</div>

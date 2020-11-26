@@ -14,9 +14,12 @@ class ChangePointsController < ApplicationController
       code.save
       redirect_to wallets_path
     else
-      @message = "ポイント化できませんでした"
+      @message_2 = "無効なコードです"
+      @codes = Code.where(user_id: current_user.id)
+      @cps = ChangePoint.where(user_id: current_user.id)
       @cp = ChangePoint.new
-      render :new
+      @code = Code.new
+      render "wallets/index"
     end
   end
 

@@ -12,18 +12,17 @@
     <% else %>
     <h2>---P</h2>
     <% end %>
-    <li><%= link_to "ポイントメニュー", wallets_path %></li>
+    <%= link_to "ポイントメニュー", wallets_path %>
     <div>
-      <li><%= link_to '出品', new_item_path %></li>
+      <%= link_to '出品', new_item_path %>
     </div>
-    <li><%= link_to 'トップページへ', root_path %></li>
+    <%= link_to 'トップページへ', root_path %>
     <div>
       <% if user_signed_in? %>
-      <li><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %>
+      <%= link_to 'ログイン', new_user_session_path, class: "login" %>
         / <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-      </li>
       <% end %>
     </div>
   </div>

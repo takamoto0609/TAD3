@@ -1,3 +1,35 @@
 // Place all the styles related to the wallets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wallets_index{
+  display: flex;
+  &_L{
+    width: 288px;
+    height: 480px;
+    padding: 12px;
+    border: 2px solid skyblue;
+    //background-color: aqua;
+    &_point{
+      text-align: center;
+      background-color: skyblue;
+    }
+  }
+  &_R{
+    width: calc(100% - 288px);
+    margin: 24px;
+    //height: 100vh;
+    //background-color: rgb(255, 0, 85);
+    display: flex;
+    &_L{}
+    &_R{
+      margin-left: 24px;
+    }
+  }
+}
+
+table th, table td {
+  border: solid 1px skyblue;
+  padding:6px;
+  text-align: center;
+  /*実線 1px 黒*/
+}
