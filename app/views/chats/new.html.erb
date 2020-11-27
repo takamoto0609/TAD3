@@ -1,9 +1,8 @@
 <div class="items_index">
   <div class="items_index_L">
-    <%= form_with url: search_items_path, method: :get, local: true do |f| %>
-    <%= f.text_field :input_name, class:"search_form"%>
-    <%= f.submit :"検索" %>
-    <% end %>
+    <div class="items_index_L_1">
+      <%= render "items/search_unit" %>
+    </div>
 
     <div class="show_item">
       <b><%= @item.name %></b><br>

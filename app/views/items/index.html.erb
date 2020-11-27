@@ -1,12 +1,7 @@
 <div class="items_index">
   <div class="items_index_L">
     <div class="items_index_L_1">
-      <h4>何が欲しい？</h4>
-      <%= form_with url: search_items_path, method: :get, local: true do |f| %>
-      <%= f.text_field :input_name, class:"search_form"%>
-      <%= f.submit :"探す" %>
-      <p>受け渡し場所でも検索できます</p>
-      <% end %>
+      <%= render "items/search_unit" %>
     </div>
     <div class="items_index_L_2">
       <h4>あげます・貸します</h4>

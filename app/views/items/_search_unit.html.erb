@@ -1,0 +1,6 @@
+<h4>何が欲しい？</h4>
+<%= form_with url: search_items_path, method: :get, local: true do |f| %>
+<%= f.text_field :input_name, class:"search_form"%>
+<%= f.submit :"探す" %>
+<p>受け渡し場所でも検索できます</p>
+<% end %>
